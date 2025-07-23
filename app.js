@@ -9,7 +9,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   'http://localhost:5173',            // for local dev
-  'https://syncall-video-call.vercel.app/'      // for production
+  'https://syncall-video-call.vercel.app'      // for production
 ];
 
 app.use(cors({ 
