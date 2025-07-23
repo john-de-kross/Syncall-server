@@ -7,11 +7,21 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: "https://syncall-video-call.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+const allowedOrigins = [
+  'http://localhost:5173',            // for local dev
+  'https://syncall-video-call.vercel.app/'      // for production
+];
+
+app.use(cors({ 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
-app.options("*", cors());
 
 app.get('/', (req, res) => {
     console.log(req.body);

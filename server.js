@@ -16,10 +16,10 @@ mongoose.connect(process.env.DATABASE_URL)
     })
 const io = new Server(server, {
     cors: {
-        origin: 'https://syncall-video-call.vercel.app',
-        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
-
-    }
+    origin: ['http://localhost:5173', 'https://syncall-video-call.vercel.app/'],
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+    credentials: true
+  }
 })
 
 io.on('connect', (socket) => {
