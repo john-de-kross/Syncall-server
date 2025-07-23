@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://syncall-video-call.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-
-}))
+  origin: "https://syncall-video-call.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+}));
+app.options("*", cors());
 
 app.get('/', (req, res) => {
     console.log(req.body);
