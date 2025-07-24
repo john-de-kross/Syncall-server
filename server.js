@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const userSocketMap = new Map()
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => {
-        console.log('Database connection successful'); 
+        console.log('Database connection successful')
 
     }).catch((err) => {
         console.error('Database connection error:', err);
