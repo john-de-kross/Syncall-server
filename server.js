@@ -13,7 +13,7 @@ mongoose.connect(process.env.DATABASE_URL)
 
     }).catch((err) => {
         console.error('Database connection error:', err);
-    })
+    });
 const io = new Server(server, {
     cors: {
     origin: ['http://localhost:5173', 'https://syncall-video-call.vercel.app'],
