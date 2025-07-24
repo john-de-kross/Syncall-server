@@ -55,13 +55,13 @@ io.on('connect', (socket) => {
 
     socket.on('answer', ({ answer, roomId }) => {
         socket.to(roomId).emit("answer", { answer })
-        console.log('answer:', roomId)
+        console.log('answer:', answer)
 
     });
 
     socket.on("ice-candidate", ({ candidate, roomId }) => {
         socket.to(roomId).emit("ice-candidate", { candidate })
-        console.log("candidate: ", roomId)
+        console.log("candidate: ", candidate)
     });
 });
 
